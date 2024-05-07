@@ -11,5 +11,12 @@ public partial class LoginDemoDbContext : DbContext
         Models.User user = this.Users.Where(u => u.Email == email).FirstOrDefault();
         return user;
     }
+
+
+    public Models.User GetUserGrades(string email)
+    {
+        Models.User user = this.Users.Include(u => u.Email == email).FirstOrDefault();
+      
+    }
 }
 
